@@ -8,7 +8,7 @@ export default function Home() {
 
   const router = useRouter();
   const { locale } = router;
-  const t = locale === 'en' ? en : ar
+  const t = locale === 'en-US' ? en : ar
 
   return (
     <div className={styles.container}>
