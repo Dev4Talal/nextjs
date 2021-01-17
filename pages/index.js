@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Nav from '../components/nav'
 import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.css'
 import en from '../locales/en'
@@ -8,7 +9,7 @@ export default function Home() {
 
   const router = useRouter();
   const { locale } = router;
-  const t = locale === 'en-US' ? en : ar
+  const t = locale === 'en' ? en : ar;
 
   return (
     <div className={styles.container}>
@@ -16,7 +17,7 @@ export default function Home() {
         <title>{ t.HomePageTitle } </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Nav />
       <main className={styles.main}>
         <h1 className={styles.title}>
           { t.companyName }
