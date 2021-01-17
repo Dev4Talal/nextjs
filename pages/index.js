@@ -39,7 +39,6 @@ export default function Home() {
           Powered by{' '}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
-        <p> just to make vercel deploy </p>
       </footer>
     </div>
   )
