@@ -1,8 +1,15 @@
+@font-face {
+  font-family: "Segoe UI";
+  src: url(segoeui.ttf) format("truetype");
+}
+html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Segoe UI, Roboto, Helvetica Neue;
+  /* font-family: Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif; */
 }
+
 a {
   color: inherit;
   text-decoration: none;
