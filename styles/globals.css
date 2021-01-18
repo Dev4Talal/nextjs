@@ -1,6 +1,7 @@
+@import url("https://www.fontstatic.com/f=hanimation");
+
 @font-face {
-  font-family: "Segoe UI";
-  src: url("../public/segoeui.ttf") format("truetype");
+  font-family: "hanimation";
 }
 
 body {
