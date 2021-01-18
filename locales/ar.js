@@ -9,6 +9,7 @@ export default {
 
 
     companyName: "شركة دبي للموارد المحدودة",
+    companyNameShort: "دبي",
     homeMainTitle: "مجموعة شاملة من الخدمات العقارية",
     homeMainDescription: "نحن نسعى دائمًا إلى بناء شراكات تجارية دائمة مع عملائنا من خلال تقديم أفضل عروض القيمة لهذه التجارة.",
 

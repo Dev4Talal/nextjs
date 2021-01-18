@@ -119,7 +119,12 @@ export default function Pricing() {
       <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+          <Box display={{ xs: 'block', sm: 'none' }}>
+            {t.companyNameShort}
+          </Box>
+          <Box display={{ xs: 'none', sm: 'block' }}>
             {t.companyName}
+          </Box>
           </Typography>
           <nav>
             <Breadcrumbs aria-label="breadcrumb">

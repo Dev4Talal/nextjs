@@ -9,6 +9,7 @@ export default {
 
 
     companyName: 'Dubai Resources Sdn. Bhd.',
+    companyNameShort: 'Dubai',
     homeMainTitle: 'A comprehensive range of real estate services',
     homeMainDescription: 'We always seek to build business partnerships with our customers through the best value offers for such kind of business.',
 
