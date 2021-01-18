@@ -125,7 +125,9 @@ export default function Pricing() {
             <Breadcrumbs aria-label="breadcrumb">
               <Link color="inherit" href="/" onClick={handleClick} className={classes.link}>
                 <HomeIcon className={classes.icon} />
-                {t.Home}
+                <Box display={{ xs: 'none', sm: 'block' }}>
+                  {t.Home}
+                </Box>
               </Link>
               <Link
                 color="inherit"
@@ -134,7 +136,9 @@ export default function Pricing() {
                 className={classes.link}
               >
                 <DetailsIcon className={classes.icon} />
-                {t.ContactUs}
+                <Box display={{ xs: 'none', sm: 'block' }}>
+                  {t.ContactUs}
+                </Box>
               </Link>
               <Link
                 color="inherit"
@@ -143,7 +147,9 @@ export default function Pricing() {
                 className={classes.link}
               >
                 <InfoIcon className={classes.icon} />
-                {t.AboutUs}
+                <Box display={{ xs: 'none', sm: 'block' }}>
+                  {t.AboutUs}
+                </Box>
               </Link>
             </Breadcrumbs>
           </nav>
