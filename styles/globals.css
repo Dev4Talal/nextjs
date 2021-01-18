@@ -1,14 +1,11 @@
-@import url("https://www.fontstatic.com/f=hanimation");
-
-@font-face {
-  font-family: "hanimation";
-}
+@import url("https://www.fontstatic.com/f=DroidKufi-Regular");
 
 body {
   padding: 0;
   margin: 0;
-  font-family: "hanimation", Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* font-family: "rawi" و Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif; */
+  font-family: "DroidKufi-Regular";
 }
 
 a {
