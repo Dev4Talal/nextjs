@@ -1,28 +1,19 @@
 import Copyright from './copyright'
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-
-import Breadcrumbs from '@material-ui/core/Breadcrumbs';
-import Chip from '@material-ui/core/Chip';
-import HomeIcon from '@material-ui/icons/Home';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import DetailsIcon from '@material-ui/icons/Details';
-import InfoIcon from '@material-ui/icons/Info';
+import Image from 'next/image'
 
 import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.css'
 import en from '../locales/en'
 import ar from '../locales/ar'
+import Nav from './nav';
+import { Paper } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -33,32 +24,8 @@ const useStyles = makeStyles((theme) => ({
       listStyle: 'none',
     },
   },
-  appBar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-  },
-  toolbar: {
-    flexWrap: 'wrap',
-  },
-  toolbarTitle: {
-    flexGrow: 1,
-  },
-  link: {
-    margin: theme.spacing(1, 1.5),
-    display: 'flex',
-  },
-  icon: {
-    marginRight: theme.spacing(0.5),
-    width: 20,
-    height: 20,
-  },
-  menuItem: {
-    fontWeight: 'bolder',
-  },
   heroContent: {
     padding: theme.spacing(8, 0, 6),
-  },
-  nav: {
-    align: 'center',
   },
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
@@ -70,33 +37,49 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(6),
     },
   },
+  mainFeaturedPost: {
+    position: 'relative',
+    backgroundColor: theme.palette.grey[800],
+    color: theme.palette.common.white,
+    marginBottom: theme.spacing(4),
+    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    backgroundColor: 'rgba(0,0,0,.3)',
+  },
+  mainFeaturedPostContent: {
+    position: 'relative',
+    padding: theme.spacing(3),
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(6),
+      paddingRight: 0,
+    },
+  },
 }));
 
-const footers = [
-  {
-    title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Locations'],
-  },
-  {
-    title: 'Features',
-    description: ['Cool stuff', 'Random feature', 'Team feature', 'Developer stuff', 'Another one'],
-  },
-  {
-    title: 'Resources',
-    description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
-  },
-  {
-    title: 'Legal',
-    description: ['Privacy policy', 'Terms of use'],
-  },
-];
+const post = {
+  title: 'Featured post',
+  date: 'Nov 12',
+  description:
+    'This is a wider card with supporting text below as a natural lead-in to additional content.',
+  image: 'https://pixabay.com/get/54e0d6414355a914f6d1867dda353678143fd7ed50597440_1920.jpg',
+  imageText: 'Image Text',
+}
 
 function handleClick(event) {
   event.preventDefault();
   console.info('You clicked a breadcrumb.');
 }
 
-export default function Pricing() {
+export default function Home() {
   const classes = useStyles();
 
   const router = useRouter();
@@ -108,74 +91,29 @@ export default function Pricing() {
     router.push('/', '/', { locale });
   };
 
-  function handleClick(event) {
-  event.preventDefault();
-  console.info('You clicked a breadcrumb.');
-}
-
   return (
     <Container>
       <CssBaseline />
-      <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
-        <Toolbar className={classes.toolbar}>
-          <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-          <Box display={{ xs: 'block', sm: 'none' }}>
-            {t.companyNameShort}
-          </Box>
-          <Box display={{ xs: 'none', sm: 'block' }}>
-            {t.companyName}
-          </Box>
-          </Typography>
-          <nav>
-            <Breadcrumbs aria-label="breadcrumb">
-              <Link color="inherit" href="/" onClick={handleClick} className={classes.link}>
-                <HomeIcon className={classes.icon} />
-                <Box display={{ xs: 'none', sm: 'block' }}>
-                  {t.Home}
-                </Box>
-              </Link>
-              <Link
-                color="inherit"
-                href="/"
-                onClick={handleClick}
-                className={classes.link}
-              >
-                <DetailsIcon className={classes.icon} />
-                <Box display={{ xs: 'none', sm: 'block' }}>
-                  {t.ContactUs}
-                </Box>
-              </Link>
-              <Link
-                color="inherit"
-                href="/"
-                onClick={handleClick}
-                className={classes.link}
-              >
-                <InfoIcon className={classes.icon} />
-                <Box display={{ xs: 'none', sm: 'block' }}>
-                  {t.AboutUs}
-                </Box>
-              </Link>
-            </Breadcrumbs>
-          </nav>
-          <Select
-            onChange={changeLanguage}
-            defaultValue={locale}
-            className={classes.link}
-          >
-            <MenuItem className={classes.menuItem} value="en">E</MenuItem>
-            <MenuItem className={classes.menuItem} value="ar">ع</MenuItem>
-          </Select>
-        </Toolbar>
-      </AppBar>
+      <Nav />
       {/* Hero unit */}
-      <Container maxWidth="sm" component="main" className={classes.heroContent}>
-        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          {t.homeMainTitle}
-        </Typography>
-        <Typography variant="h5" align="center" color="textSecondary" component="p">
-          {t.homeMainDescription}
-        </Typography>
+      <Container component="main" className={classes.heroContent}>
+        <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${post.image})` }}>
+          {/* Increase the priority of the hero background image */}
+          {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
+          <div className={classes.overlay} />
+          <Grid container>
+            <Grid item md={6}>
+              <div className={classes.mainFeaturedPostContent}>
+                <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+                  {t.homeMainTitle}
+                </Typography>
+                <Typography variant="h5" color="inherit" paragraph>
+                  {t.homeMainDescription}
+                </Typography>
+              </div>
+            </Grid>
+          </Grid>
+        </Paper>
       </Container>
       {/* End hero unit */}
       
